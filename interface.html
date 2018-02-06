@@ -1,10 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Ordonnancement - Chart.JS</title>
-  </head>
-  <body>
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style media="screen">
+    body {
+      padding: 20px;
+    }
+
+    .container {}
+  </style>
+  <title>Ordonnancement - Chart.JS</title>
+</head>
+
+<body>
+  <div class="formulaire">
+    <div class="jumbotron jumbotron-fluid bg-info text-white text-center">
+      <div class="container">
+        <h4 class="display-5">Ordonnancement de Processus dynamiquement</h4>
+        <p>introduisez vos processus à travers le formulaire ci-dessous...</p>
+      </div>
+    </div>
+    <div class="statique">
+      <fieldset>
+        <legend>Veuillez selectionner votre type d'ordonnancement</legend>
+        <div id="radio" class="container">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="to" value="fifo" id="r1" checked>
+            <label class="form-check-label" for="r1">FIFO</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="to" value="avec-preemption" id="r2">
+            <label class="form-check-label" for="r2">Priorité avec préemption</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="to" value="avec-age" id="r3">
+            <label class="form-check-label" for="r3">Priorité avec age et quantum de temps</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="to" value="tourniquet" id="r4">
+            <label class="form-check-label" for="r4">Tourniquet</label>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="nbreproc">Nombre de processus :</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="number" id="nbreproc"> <br/>
+        </div>
+        <label class="col-sm-2 col-form-label" for="nbrerec">Nombre de ressources :</label>
+        <div class="col-sm-10">
+          <input class="form-control" type="number" id="nbrerec">
+        </div>
+      </div>
+      <div class="container">
+        <button type="button" class="btn btn-primary" id="valider">Valider</button>
+      </div>
+    </div>
+    <div id="dynamique">
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+</body>
+
 </html>
