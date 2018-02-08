@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Essai</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      padding: 20px;
+      width: 1240px;
+      margin: auto;
+    }
+    h3{
+      margin-bottom: 35px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="formulaire">
+    <p> <h3>Formulaire</h3> </p>
+  </div>
+  <fieldset>
+    <legend>Veuillez sélectionner votre type d'ordonnancement</legend>
+    <input type="radio" name="radioalgo" value="fifo" id="radio-fifo" checked="checked"><label for="radio-fifo">FIFO</label>
+    <input type="radio" name="radioalgo" value="priopre" id="radio-priopre"><label for="radio-priopre">Priorité avec préemption</label>
+    <input type="radio" name="radioalgo" value="prioage" id="radio-prioage"><label for="radio-prioage">Priorité avec âge et quantum de temps</label>
+    <input type="radio" name="radioalgo" value="rr" id="radio-rr"><label for="radio-rr">Tourniquet</label>
+  </fieldset>
+  <label>Nombre de processus :</label><input type="number" class="nbreproc"><br/>
+  <label>Nombre de ressources :</label><input type="number" class="nbreres"><br/>
+  <button type="button" id="valider" style="margin-top: 20px; margin-bottom: 20px;">Valider</button><br/>
+
+  <form method="post" action="" class="pp">
+  </form>
+  <script src="./jquery.js"></script>
+  <script src="./essai.js"></script>
+</body>
+
+</html>
