@@ -17,14 +17,29 @@ $(function() {
   var radio;
   //click qui affiche les formulaires des evennements
   $("#valider").on("click", function(e) {
+    $(".hide").hide();
     nbre_proc = parseInt($(".nbreproc").val());
     nbre_res = parseInt($(".nbreres").val());
     radio = $("fieldset input[type='radio']:checked").val();
     console.log(radio);
     //tableau de ressources pour remplir les semaphores
     for (i = 1; i <= nbre_res; i++) {
-      var ch = "R" + i;
+      var ch = "SEM_R" + i;
       tabRes.push(ch);
+
+
+      console.log(tabRes);
+      console.log(nbre_proc);
+      console.log(nbre_res);
+      //remplir les options de semaphore à partir de tabRes-->tableau des ressources
+      var cpt;
+      var ajouter_options = "";
+      for (cpt = 0; cpt < tabRes.length; cpt++) {
+        var option_res = '"<option value="     ' + tabRes[cpt] + '     ">  ' + tabRes[cpt] + '   </option>"';
+        ajouter_options += option_res;
+      }
+
+
     }
     //reglage de processus
     for (i = 0; i < nbre_proc; i++) {
@@ -52,33 +67,37 @@ $(function() {
               for (j = 0; j < x; j++) {
                 console.log("vvvvvv");
                 $(".events" + i).append('<label><b>Evennement' + (j + 1) + ' :</b></label>' + '<label>Temps :</label> <input type="text" id="temps' + j + '"/><label>Operations :</label><select id="operations' + j + '"><option value="choisir" selected>Choisir</option><option value="OP_CLAIM">OP_CLAIM</option><option value="OP_RELEASE">OP_RELEASE</option><option value="OP_STOP">OP_STOP</option></select><label>Semaphores :</label> <select id="semaphores' + j + '"><option value=choisir"">Choisir</option></select><br/>');
+                //nouveau
+
+                $('.pp [id="semaphores' + j + '"]').append(ajouter_options);
+                //nouveau
+
+                //bouton de vérification
+                $(".events").append('<button type="button" id="verifier">Verifier</button><br/>');
+                $("#verifier").on("click", function(e) {
+                  for (j = 0; j < x; j++) {
+                    var y = parseInt($("#temps" + j).val());
+                    console.log(y);
+                  }
+                });
+                //bouton de vérification
               }
-              $(".events").append('<button type="button" id="verifier">Verifier</button><br/>');
-              $("#verifier").on("click", function(e) {
-                for (j = 0; j < x; j++) {
-                  var y = parseInt($("#temps" + j).val());
-                  console.log(y);
-                }
-              });
+
             }
 
           });
         });
         //jnzjk:djciledc
+
+
         $(".pp").append('<button type="button" id="envoyer">Envoyer</button>');
         $(".pp").append('<button type="reset" id="reset">Reset</button>');
+        //action sur le bouton envoyer
         $("#envoyer").on("click", function() {
           console.log("7mdl");
         });
-
       }
-
-
     }
-console.log(tabRes);
-console.log(nbre_proc);
-console.log(nbre_res);
-
   });
 
 });
